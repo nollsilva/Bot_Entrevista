@@ -42,6 +42,10 @@ app.post('/whatsapp', async (req, res) => {
   res.end(twiml.toString());
 });
 
+app.get('/obter', async (req, res) => {
+  return "Ola mundo"
+} )
+
 async function getAddressFromCep(cep) {
   try {
     // aqui vai a url da api de endereço.
