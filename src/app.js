@@ -18,8 +18,6 @@ app.post('/whatsapp', async (req, res) => {
   const incomingMsg = req.body.Body.toLowerCase();
   const phoneNumber = req.body.From;
 
-  return "teste..."
-
   let responseMsg = '';
 
   if (!session[phoneNumber]) {
@@ -45,7 +43,10 @@ app.post('/whatsapp', async (req, res) => {
 });
 
 app.get('/obter', async (req, res) => {
-  return "Ola mundo"
+  const retornoConsulta = {
+    mensagem: "Olá Mundo"
+  };
+return res.json(retornoConsulta).status(200);
 } );
 
 async function getAddressFromCep(cep) {
