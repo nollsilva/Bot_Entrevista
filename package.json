@@ -9,6 +9,10 @@
   },
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "build": "babel src -d dist"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.0.0"
   }
 }
