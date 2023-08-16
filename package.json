@@ -8,11 +8,13 @@
     "twilio": "^4.15.0"
   },
   "scripts": {
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "build": "babel src -d dist"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js",
+    "build": "babel src -d dist && node src/app.js"
   },
   "devDependencies": {
-    "babel-cli": "^6.0.0"
+    "babel-cli": "^6.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0"
   }
 }
