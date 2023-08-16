@@ -49,6 +49,7 @@ app.get('/obter', async (req, res) => {
 return res.json(retornoConsulta).status(200);
 } );
 
+
 async function getAddressFromCep(cep) {
   try {
     // aqui vai a url da api de endereço.
@@ -60,7 +61,7 @@ async function getAddressFromCep(cep) {
   }
 }
 
-const PORT = process.env.PORT ? Number(process.env.PORT) : 10000;
+const PORT = 10000;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
