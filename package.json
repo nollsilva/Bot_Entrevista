@@ -8,7 +8,7 @@
     "twilio": "^4.15.0"
   },
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node dist/app.js",
     "dev": "nodemon src/app.js",
     "build": "babel src -d dist && node src/app.js"
   },
