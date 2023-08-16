@@ -45,7 +45,7 @@ app.post('/whatsapp', async (req, res) => {
 app.get('/obter', async (req, res) => {
   const retornoConsulta = {
     mensagem: "Olá Mundo"
-  };
+  };  
 return res.json(retornoConsulta).status(200);
 } );
 
@@ -60,7 +60,7 @@ async function getAddressFromCep(cep) {
   }
 }
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT ? Number(process.env.PORT) : 10000;
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
