@@ -22,9 +22,19 @@ app.post('/whatsapp', async (req, res) => {
 
   [
     {
+      call1:{
       "BoasVindas": "essas sao as boas vindas",
-      "nome": "nome completo",
-      "cpf": "000.000.000-00"
+      "nome": "nome completo"
+        },
+      call2:{
+        "cpf": "000.000.000-00"
+      },
+      call3:{
+        "cep": "00.000.000"
+      },
+      call4:{
+        "finalizou": "Obrg por entrar em contato \n ajudo em algo mais???"
+      }
     }
   ]
 
@@ -70,6 +80,12 @@ async function getAddressFromCep(cep) {
 }
 
 const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+app.listen({
+  host: '0.0.0.0',
+  port: process.env.PORT ? Number(process.env.PORT) : 3000,
+}).then(() => {
+  console.log('HTTP Server Running')
+})
+// app.listen(PORT, () => {
+//   console.log(`Server is listening on port ${PORT}`);
+// });
