@@ -20,20 +20,28 @@ app.post('/whatsapp', async (req, res) => {
 
   let responseMsg = '';
 
-  if (!session[phoneNumber]) {
-    responseMsg = 'Olá! Obrigado Por entrar em contato.por favor, insira seu nome:';
-    session[phoneNumber] = 'name';
-  } else if (session[phoneNumber] === 'name') {
-    responseMsg = 'Ótimo! Agora, insira seu CPF:';
-    session[phoneNumber] = 'cpf';
-  } else if (session[phoneNumber] === 'cpf') {
-    responseMsg = 'Quase lá! Agora, insira seu CEP:';
-    session[phoneNumber] = 'cep';
-  } else if (session[phoneNumber] === 'cep') {
-    const address = await getAddressFromCep(incomingMsg);
-    responseMsg = `Seu endereço completo é: ${address}`;
-    delete session[phoneNumber];
-  }
+  [
+    {
+      "BoasVindas": "essas sao as boas vindas",
+      "nome": "nome completo",
+      "cpf": "000.000.000-00"
+    }
+  ]
+
+  // if (!session[phoneNumber]) {
+  //   responseMsg = 'Olá! Obrigado Por entrar em contato.por favor, insira seu nome:';
+  //   session[phoneNumber] = 'name';
+  // } else if (session[phoneNumber] === 'name') {
+  //   responseMsg = 'Ótimo! Agora, insira seu CPF:';
+  //   session[phoneNumber] = 'cpf';
+  // } else if (session[phoneNumber] === 'cpf') {
+  //   responseMsg = 'Quase lá! Agora, insira seu CEP:';
+  //   session[phoneNumber] = 'cep';
+  // } else if (session[phoneNumber] === 'cep') {
+  //   const address = await getAddressFromCep(incomingMsg);
+  //   responseMsg = `Seu endereço completo é: ${address}`;
+  //   delete session[phoneNumber];
+  // }
 
   const twiml = new twilio.twiml.MessagingResponse();
   twiml.message(responseMsg);
