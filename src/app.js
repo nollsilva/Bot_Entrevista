@@ -79,7 +79,7 @@ async function getAddressFromCep(cep) {
   }
 }
 
-const PORT = process.env.PORT || 10000;
+const PORT = process.env.PORT || 3000;
 app.listen({
   host: '0.0.0.0',
   port: process.env.PORT ? Number(process.env.PORT) : 3000,
